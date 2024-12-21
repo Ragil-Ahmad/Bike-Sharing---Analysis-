@@ -4,51 +4,51 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-def create_season_weather_group(day_clean_data):
+def create_season_weather_group(day_df):
     season_weather_group = day_clean_data.groupby(['season', 'weather_condition'])['count'].mean().reset_index()
     season_weather_group['season'] = pd.Categorical(season_weather_group['season'], categories=['Spring', 'Summer', 'Fall', 'Winter'], ordered=True)
     return season_weather_group
 
-def create_weekday_avg(day_clean_data):
+def create_weekday_avg(day_df):
     weekday_avg = day_clean_data.groupby('weekday')[['registered', 'casual']].mean().mean()
     return weekday_avg
 
-def create_workingday_avg(day_clean_data):
+def create_workingday_avg(day_df):
     workingday_avg = day_clean_data.groupby('workingday')[['registered', 'casual']].mean().mean()
     return workingday_avg
 
-def create_holiday_avg(day_clean_data):
+def create_holiday_avg(day_df):
     holiday_avg = day_clean_data.groupby('holiday')[['registered', 'casual']].mean().mean()
     return holiday_avg
 
-def create_hourly_registered(hour_clean_data):
+def create_hourly_registered(hour_df):
     hourly_registered = hour_clean_data.groupby('hour')['registered'].mean()
     return hourly_registered
 
-def create_hourly_casual(hour_clean_data):
+def create_hourly_casual(hour_df):
     hourly_casual = hour_clean_data.groupby('hour')['casual'].mean()
     return hourly_casual
 
-def create_casual_user(day_clean_data):
+def create_casual_user(day_df):
     casual_user = day_clean_data.groupby(by='date').agg({
         'casual': 'sum'
     }).reset_index()
     return casual_user
 
-def create_registered_user(day_clean_data):
+def create_registered_user(day_df):
     registered_user = day_clean_data.groupby(by='date').agg({
         'registered': 'sum'
     }).reset_index()
     return registered_user
 
-def create_daily_user_count(day_clean_data):
+def create_daily_user_count(day_df):
     daily_user_count = day_clean_data.groupby(by='date').agg({
         'count': 'sum'
     }).reset_index()
     return daily_user_count
 # Read Data
-day_df = pd.read_csv('day_clean_data.csv')
-hour_df = pd.read_csv('hour_clean_data.csv')
+day_df = pd.read_csv('dashboard/day_clean_data.csv')
+hour_df = pd.read_csv('dashboard/hour_clean_data.csv')
 
 # Sort and preprocess
 datetime_columns = ["date"]
