@@ -23,5 +23,5 @@ hour_df = pd.read_csv("dashboard/hour_clean_data.csv")
 ```
 ## Run streamlit app
 ```python
-streamlit run dashboard.py
+streamlit run dashboard/dashboard.py
 ```
