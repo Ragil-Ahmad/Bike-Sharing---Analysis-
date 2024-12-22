@@ -11,7 +11,7 @@ pip freeze >  requirements.txt
 
 ## Path Dataset In Deploy and Local
 Path for dataset when deploy in cloud and local
-### Local (In directory submission)
+### Local (Running on directory or folder "submission")
 ```python
 day_df = pd.read_csv("dashboard/day_clean_data.csv")
 hour_df = pd.read_csv("dashboard/hour_clean_data.csv")
