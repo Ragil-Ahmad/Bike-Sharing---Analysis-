@@ -9,14 +9,14 @@ py -m venv .venv
 pip freeze >  requirements.txt
 ```
 
-## Different Path Dataset In Deploy and Local
-I'm using different path for dataset when deploy in cloud and local
-### Local
+## Path Dataset In Deploy and Local
+Path for dataset when deploy in cloud and local
+### Local (In directory submission)
 ```python
-day_df = pd.read_csv("day_clean_data.csv")
-hour_df = pd.read_csv("hour_clean_data.csv")
+day_df = pd.read_csv("dashboard/day_clean_data.csv")
+hour_df = pd.read_csv("dashboard/hour_clean_data.csv")
 ```
-### Deploy
+### Deploy (root directory "dashboard" in github)
 ```python
 day_df = pd.read_csv("dashboard/day_clean_data.csv")
 hour_df = pd.read_csv("dashboard/hour_clean_data.csv")
@@ -24,4 +24,9 @@ hour_df = pd.read_csv("dashboard/hour_clean_data.csv")
 ## Run streamlit app
 ```python
 streamlit run dashboard/dashboard.py
+```
+or 
+```python
+cd dashboard
+streamlit run dashboard.py
 ```
