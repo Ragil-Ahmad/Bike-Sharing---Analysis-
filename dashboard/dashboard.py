@@ -42,8 +42,8 @@ def create_daily_user_count(day_df):
     }).reset_index()
     return daily_user_count
 # Read Data
-day_df = pd.read_csv("day_clean_data.csv")
-hour_df = pd.read_csv("hour_clean_data.csv")
+day_df = pd.read_csv("dashboard/day_clean_data.csv")
+hour_df = pd.read_csv("dashboard/hour_clean_data.csv")
 
 # Sort and preprocess
 datetime_columns = ["date"]
