@@ -10,6 +10,7 @@ pip freeze >  requirements.txt
 ```
 
 ## Different Path Dataset In Deploy and Local
+I'm using different path for dataset when deploy in cloud and local
 ### Local
 ```python
 day_df = pd.read_csv("day_clean_data.csv")
